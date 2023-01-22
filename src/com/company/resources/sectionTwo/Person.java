@@ -55,9 +55,11 @@ public class Person {
     public String getDateOfBirth(){
         return dateOfBirth;
     }
+
     public int getSeatNumber(){
         return seatNumber;
     }
+
     public String[] getPassport(){
         return Arrays.copyOf(this.passport,this.passport.length);
     }
@@ -65,19 +67,21 @@ public class Person {
     public void setName(String name) {
         this.name = name;
     }
-    public void setNationality(String nationality) {
-        this.nationality = nationality;
-    }
-    public void setDateOfBirth(String dateOfBirth){
-        this.dateOfBirth = dateOfBirth;
-    }
-    public void setPassport(String[] passport){
-        this.passport = Arrays.copyOf(passport,passport.length);
-    }
+
     public void setSeatNumber(int seatNumber){
         this.seatNumber = seatNumber;
     }
     public void setPassport(){
         passport = new String[] {name, nationality,dateOfBirth};
+    }
+    /**
+     * toString
+     */
+    public String toString(){
+        return "Name: " + name + "\n" +
+                "Nationality: " + nationality + "\n" +
+                "Date of birth: " + dateOfBirth + "\n" +
+                "Seat number: " + seatNumber + "\n" +
+                "Passport: " + Arrays.toString(passport) + "\n";
     }
 }
