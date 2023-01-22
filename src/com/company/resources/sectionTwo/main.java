@@ -16,16 +16,6 @@ public class main {
         System.out.println("New seat number is: " + person.getSeatNumber());
         System.out.println("\n");
 
-        Person person2 = new Person(person);
-        System.out.println("Changing name");
-        person2.setName("James");
-        person2.setSeatNumber(3);
-
-        System.out.println("Getting person2's variables: ");
-        System.out.println(person2.getName());
-        System.out.println(person2.getNationality());
-        System.out.println(person2.getDateOfBirth());
-        System.out.println(person2.getSeatNumber());
 
         if(person.applyPassport()){
             System.out.println("We could process your passport successfully");
@@ -38,12 +28,6 @@ public class main {
             System.out.println(Arrays.toString(person.getPassport()));
         }
 
-        System.out.println("Name: " + person.getName() + "\n" +
-                "Nationality: " + person.getNationality() + "\n" +
-                "Date of Birth" + person.getDateOfBirth() + "\n" +
-                "Seat Number" + person.getSeatNumber() + "\n" + "Passport: " +
-                Arrays.toString(person.getPassport()) + "\n");
-
-
+        System.out.println(person.toString());
     }
 }
