@@ -4,30 +4,29 @@ import java.util.Arrays;
 
 public class main {
     public static void main(String[] args){
-        Person person = new Person("Person", "American","01/26/1990",5);
+        Person[] people = new Person[] {
+                new Person("Cleopatra", "Egypt", "69 BC", 1),
+                new Person("Alexander the Great", "Macedon", "356 BC", 2),
+                new Person("Julius Caesar", "Rome", "100 BC", 3),
+                new Person("Hannibal", "Carthage", "247 BC", 4),
+                new Person("Confucius", "China", "551 BC", 5),
+                new Person("Pericles", "Greece", "429 BC", 6),
+                new Person("Spartacus", "Thrace", "111 BC", 7),
+                new Person("Marcus Aurelius", "Rome", "121 AD", 8),
+                new Person("Leonidas", "Greece", "540 BC", 9),
+                new Person("Sun Tzu", "China", "544 BC", 10),
+                new Person("Hammurabi", "Babylon", "1750 BC", 10),
+        };
+        Airline airline = new Airline();
 
-        System.out.println("Name:" + person.getName());
-        System.out.println("Date of Birth: " + person.getDateOfBirth());
-        System.out.println("Nationality: " + person.getNationality());
-        System.out.println("Seat number: " + person.getSeatNumber());
-
-        System.out.println("The person's seat is already taken. Changing seat number from " + person.getSeatNumber());
-        person.setSeatNumber(2);
-        System.out.println("New seat number is: " + person.getSeatNumber());
-        System.out.println("\n");
-
-
-        if(person.applyPassport()){
-            System.out.println("We could process your passport successfully");
-            System.out.println("Congratulations, " + person.getName() + " were randomly selected for a new seat!");
-            System.out.println("Your seat was " + person.getSeatNumber() + " and is now " + person.chooseSeat());
-            person.setPassport();
-            System.out.println(Arrays.toString(person.getPassport()));
-        } else {
-            System.out.println("Error processing your passport");
-            System.out.println(Arrays.toString(person.getPassport()));
+        for(int i = 0; i < people.length; i++){
+            boolean passportApproved = people[i].applyPassport();
+            if(passportApproved){
+                people[i].setPassport();
+                airline.createReservation(people[i]);
+            } else {
+                System.out.println("Sorry, " + people[i].getName() + ". Your passport: " + Arrays.toString(people[i].getPassport()) + " is not valid.\n");
+            }
         }
-
-        System.out.println(person.toString());
     }
 }
